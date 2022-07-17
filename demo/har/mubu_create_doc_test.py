@@ -7,12 +7,12 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 class TestCaseMubuCreateDoc(HttpRunner):
 
-    config = Config("testcase description").verify(False)
+    config = Config("testcase description").verify(False).base_url("https://api2.mubu.com/")
 
     teststeps = [
         Step(
             RunRequest("/v3/api/user/phone_login")
-            .post("https://api2.mubu.com/v3/api/user/phone_login")
+            .post("/v3/api/user/phone_login")
             .with_headers(
                 **{
                     "content-length": "63",
@@ -80,7 +80,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/profile")
-            .post("https://api2.mubu.com/v3/api/user/profile")
+            .post("/v3/api/user/profile")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -109,7 +109,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/activity/five_years/participation")
-            .post("https://api2.mubu.com/v3/api/activity/five_years/participation")
+            .post("/v3/api/activity/five_years/participation")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -139,7 +139,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/star_relation/get")
-            .get("https://api2.mubu.com/v3/api/list/star_relation/get")
+            .get("/v3/api/list/star_relation/get")
             .with_headers(
                 **{
                     "sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
@@ -166,7 +166,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/get_all_documents_page")
-            .post("https://api2.mubu.com/v3/api/list/get_all_documents_page")
+            .post("/v3/api/list/get_all_documents_page")
             .with_headers(
                 **{
                     "content-length": "12",
@@ -196,7 +196,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/get_user_params")
-            .post("https://api2.mubu.com/v3/api/user/get_user_params")
+            .post("/v3/api/user/get_user_params")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -225,7 +225,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/get_onboard_state")
-            .post("https://api2.mubu.com/v3/api/user/get_onboard_state")
+            .post("/v3/api/user/get_onboard_state")
             .with_headers(
                 **{
                     "content-length": "2",
@@ -255,7 +255,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/advertisement/get")
-            .post("https://api2.mubu.com/v3/api/advertisement/get")
+            .post("/v3/api/advertisement/get")
             .with_headers(
                 **{
                     "content-length": "10",
@@ -285,7 +285,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/item_count")
-            .post("https://api2.mubu.com/v3/api/list/item_count")
+            .post("/v3/api/list/item_count")
             .with_headers(
                 **{
                     "content-length": "30",
@@ -315,7 +315,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/message/get_message_unread")
-            .post("https://api2.mubu.com/v3/api/message/get_message_unread")
+            .post("/v3/api/message/get_message_unread")
             .with_headers(
                 **{
                     "content-length": "10",
@@ -345,7 +345,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/notify/new_tip/get")
-            .post("https://api2.mubu.com/v3/api/notify/new_tip/get")
+            .post("/v3/api/notify/new_tip/get")
             .with_headers(
                 **{
                     "content-length": "10",
@@ -375,7 +375,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/create_doc")
-            .options("https://api2.mubu.com/v3/api/list/create_doc")
+            .options("/v3/api/list/create_doc")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -396,7 +396,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/create_doc")
-            .post("https://api2.mubu.com/v3/api/list/create_doc")
+            .post("/v3/api/list/create_doc")
             .with_headers(
                 **{
                     "content-length": "25",
@@ -428,7 +428,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/list/item_count")
-            .post("https://api2.mubu.com/v3/api/list/item_count")
+            .post("/v3/api/list/item_count")
             .with_headers(
                 **{
                     "content-length": "30",
@@ -458,7 +458,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/document/edit/get")
-            .options("https://api2.mubu.com/v3/api/document/edit/get")
+            .options("/v3/api/document/edit/get")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -479,7 +479,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/document/edit/get")
-            .post("https://api2.mubu.com/v3/api/document/edit/get")
+            .post("/v3/api/document/edit/get")
             .with_headers(
                 **{
                     "content-length": "37",
@@ -509,7 +509,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/register")
-            .options("https://api2.mubu.com/v3/api/colla/register")
+            .options("/v3/api/colla/register")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -530,7 +530,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "94",
@@ -566,7 +566,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/doc/list")
-            .options("https://api2.mubu.com/v3/api/refer/doc/list")
+            .options("/v3/api/refer/doc/list")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -587,7 +587,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/register")
-            .get("https://api2.mubu.com/v3/api/colla/register")
+            .get("/v3/api/colla/register")
             .with_headers(
                 **{
                     "sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
@@ -613,7 +613,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/doc/list")
-            .post("https://api2.mubu.com/v3/api/refer/doc/list")
+            .post("/v3/api/refer/doc/list")
             .with_headers(
                 **{
                     "content-length": "29",
@@ -642,7 +642,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/members_v2")
-            .options("https://api2.mubu.com/v3/api/colla/members_v2")
+            .options("/v3/api/colla/members_v2")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -663,7 +663,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/node/count")
-            .options("https://api2.mubu.com/v3/api/refer/node/count")
+            .options("/v3/api/refer/node/count")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -684,7 +684,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/members_v2")
-            .post("https://api2.mubu.com/v3/api/colla/members_v2")
+            .post("/v3/api/colla/members_v2")
             .with_headers(
                 **{
                     "content-length": "58",
@@ -714,7 +714,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/node/count")
-            .post("https://api2.mubu.com/v3/api/refer/node/count")
+            .post("/v3/api/refer/node/count")
             .with_headers(
                 **{
                     "content-length": "29",
@@ -744,7 +744,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "149",
@@ -783,7 +783,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/search_refers")
-            .options("https://api2.mubu.com/v3/api/refer/search_refers")
+            .options("/v3/api/refer/search_refers")
             .with_headers(
                 **{
                     "accept": "*/*",
@@ -804,7 +804,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/refer/search_refers")
-            .post("https://api2.mubu.com/v3/api/refer/search_refers")
+            .post("/v3/api/refer/search_refers")
             .with_headers(
                 **{
                     "content-length": "52",
@@ -833,7 +833,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "250",
@@ -887,7 +887,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "446",
@@ -959,7 +959,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "293",
@@ -1015,7 +1015,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "250",
@@ -1069,7 +1069,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/events")
-            .post("https://api2.mubu.com/v3/api/colla/events")
+            .post("/v3/api/colla/events")
             .with_headers(
                 **{
                     "content-length": "293",
