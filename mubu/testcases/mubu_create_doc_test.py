@@ -773,7 +773,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "version": 0,
                     "documentId": "$docId",
                     "events": [
-                        {"name": "nameChanged", "title": "demo", "original": ""}
+                        {"name": "nameChanged", "title": "mubu", "original": ""}
                     ],
                 }
             )
@@ -826,7 +826,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "accept-language": "zh-CN,zh;q=0.9",
                 }
             )
-            .with_json({"docId": "$docId", "keywords": "demo", "option": 1})
+            .with_json({"docId": "$docId", "keywords": "mubu", "option": 1})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
