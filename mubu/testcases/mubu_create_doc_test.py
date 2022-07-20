@@ -3,14 +3,14 @@
 
 
 from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
-from requests import request
 
 
 class TestCaseMubuCreateDoc(HttpRunner):
 
     config = Config("testcase description").verify(False)\
         .base_url("https://api2.mubu.com/")\
-        .variables(**{"host":"mubu.com"})# 全局变量
+        .variables(**{"host":"mubu.com"})\
+        .variables(**{"phone": "18976231206", "password": "369874125"})
 
     teststeps = [
         Step(
@@ -39,11 +39,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                 }
             )
             .with_json(
-                {"phone": "18976231206", "password": "369874125", "callbackType": 0}
+                {"phone": "$phone", "password": "$password", "callbackType": 0}
             )
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
+            .assert_equal("body.data.id", 487208)
         ),
         Step(
             RunRequest("/app")
@@ -196,6 +197,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
+            .assert_string_equals("body.data.documents[0].id", "1dIUNbJps9E") # 添加校验器
         ),
         Step(
             RunRequest("/v3/api/user/get_user_params")
