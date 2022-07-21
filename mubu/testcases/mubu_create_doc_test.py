@@ -10,7 +10,8 @@ class TestCaseMubuCreateDoc(HttpRunner):
     config = Config("testcase description").verify(False)\
         .base_url("https://api2.mubu.com/")\
         .variables(**{"host":"mubu.com"})\
-        .variables(**{"phone": "18976231206", "password": "369874125"})
+        .variables(**{"phone": "18976231206", "password": "369874125"})\
+        .variables(title="mubutest")
 
     teststeps = [
         Step(
@@ -22,7 +23,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
                     "version": "3.0.0-2.0.0.1824",
                     "sec-ch-ua-mobile": "?0",
-                    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36",
+                    "user-agent": "HttpRunner/${get_httprunner_version()}",
                     "data-unique-id": "88fa8d79-f947-4206-92ad-5cc38f630c6f",
                     "content-type": "application/json;charset=UTF-8",
                     "accept": "application/json, text/plain, */*",
@@ -778,7 +779,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "version": 0,
                     "documentId": "$docId",
                     "events": [
-                        {"name": "nameChanged", "title": "mubu", "original": ""}
+                        {"name": "nameChanged", "title": "${title}", "original": ""}
                     ],
                 }
             )
@@ -876,7 +877,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "node": {
                                         "id": "6UcrPdVEE2",
                                         "text": "",
-                                        "modified": 1658026062703,
+                                        "modified": "${timestamp()}",
                                         "children": [],
                                     },
                                     "path": ["nodes", 0],
@@ -928,12 +929,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "updated": {
                                         "id": "6UcrPdVEE2",
                                         "text": "<span>1</span>",
-                                        "modified": 1658026064390,
+                                        "modified": "${timestamp()}",
                                     },
                                     "original": {
                                         "id": "6UcrPdVEE2",
                                         "text": "",
-                                        "modified": 1658026062703,
+                                        "modified": "${timestamp()}",
                                     },
                                     "path": ["nodes", 0],
                                 }
@@ -948,7 +949,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "node": {
                                         "id": "cBJOqgLhr9",
                                         "text": "",
-                                        "modified": 1658026064750,
+                                        "modified": "${timestamp()}",
                                         "children": [],
                                     },
                                     "path": ["nodes", 1],
@@ -1000,12 +1001,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "updated": {
                                         "id": "cBJOqgLhr9",
                                         "text": "<span>2</span>",
-                                        "modified": 1658026065424,
+                                        "modified": "${timestamp()}",
                                     },
                                     "original": {
                                         "id": "cBJOqgLhr9",
                                         "text": "",
-                                        "modified": 1658026064750,
+                                        "modified": "${timestamp()}",
                                     },
                                     "path": ["nodes", 1],
                                 }
@@ -1058,7 +1059,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "node": {
                                         "id": "woUUTt0aGj",
                                         "text": "",
-                                        "modified": 1658026065790,
+                                        "modified": "${timestamp()}",
                                         "children": [],
                                     },
                                     "path": ["nodes", 2],
@@ -1110,12 +1111,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "updated": {
                                         "id": "woUUTt0aGj",
                                         "text": "<span>3</span>",
-                                        "modified": 1658026066399,
+                                        "modified": "${timestamp()}",
                                     },
                                     "original": {
                                         "id": "woUUTt0aGj",
                                         "text": "",
-                                        "modified": 1658026065790,
+                                        "modified": "${timestamp()}",
                                     },
                                     "path": ["nodes", 2],
                                 }
