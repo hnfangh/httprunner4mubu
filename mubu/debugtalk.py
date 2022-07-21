@@ -13,3 +13,6 @@ def sum_two(m, n):
 
 def sleep(n_secs):
     time.sleep(n_secs)
+
+def timestamp():
+    return time.time()*1000
